@@ -7,7 +7,7 @@ class Footer extends HTMLElement {
 
 const footerCss = `
     .footer {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         width: 100%;
         display: flex;
