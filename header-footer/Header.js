@@ -59,7 +59,7 @@ const headerHtml = `
         <div class="menu">
             <h3>Home</h3>
             <h3>About Me</h3>
-            <h3>Skills</h3>
+            <h3>Skills and Projects</h3>
             <h3>Contact</h3>
         </div>
     </div>
