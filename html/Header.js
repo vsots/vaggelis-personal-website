@@ -1,12 +1,37 @@
+import home from "./pages/Home";
+import about from "./pages/AboutMe";
+import snm from "./pages/SkillsAndProjects";
+import contact from "./pages/Contact";
+
 class Header extends HTMLElement {
     constructor() {
-        super()
-        this.attachShadow({mode: "closed"}).innerHTML = `${headerHtml}`;
+        super();
+        this.attachShadow({mode: "open"}).innerHTML = `${headerHtml}`;
+        this.shadowRoot.querySelector("#menu").childNodes.forEach((node) => {
+            this.listen(node);
+        })
+    }
+
+    listen(el) {
+        el.addEventListener("click", () => {
+            const content = document.getElementById("content");
+            switch(el.attributes.id) {
+                case "about":
+                    content.innerHTML = about;
+                case "skills":
+                    content.innerHTML = snm;
+                case "contact":
+                    content.innerHTML = contact;
+                default:
+                    content.innerHTML = home;
+            }
+        });
     }
 }
 
 const headerCss = `
-    .header {
+    #header {
+        height: 15vh;
         padding: 2em 2em 0 2em;
         border-bottom: 1px black solid;
     }
@@ -36,7 +61,7 @@ const headerCss = `
         line-height: 0.5;
     }
 
-    .menu {
+    #menu {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -48,7 +73,7 @@ const headerCss = `
 
 const headerHtml = `
     <style>${headerCss}</style>
-    <div class="header">
+    <div id="header">
         <div class="title">
             <img src="./media/Vaggelis_Sotiropoulos_Profile_Photo.jpeg" alt="Welcome"/>
             <div class="name">
@@ -56,11 +81,11 @@ const headerHtml = `
                 <h2>Software Engineer</h2>
             </div>
         </div>
-        <div class="menu">
-            <h3>Home</h3>
-            <h3>About Me</h3>
-            <h3>Skills and Projects</h3>
-            <h3>Contact</h3>
+        <div id="menu">
+            <h3 id="home">Home</h3>
+            <h3 id="about">About Me</h3>
+            <h3 id="skills">Skills & Projects</h3>
+            <h3 id="contact">Contact</h3>
         </div>
     </div>
 `;
