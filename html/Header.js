@@ -18,10 +18,13 @@ class Header extends HTMLElement {
             switch(el.attributes.id) {
                 case "about":
                     content.innerHTML = about;
+                    break;
                 case "skills":
                     content.innerHTML = snm;
+                    break;
                 case "contact":
                     content.innerHTML = contact;
+                    break;
                 default:
                     content.innerHTML = home;
             }
