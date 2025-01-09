@@ -1,9 +1,10 @@
 {
   "name": "vaggelis-personal-website",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.mjs",
+  "tpye": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.mjs"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,7 @@
   "bugs": {
     "url": "https://github.com/vsots/vaggelis-personal-website/issues"
   },
-  "homepage": "https://github.com/vsots/vaggelis-personal-website#readme",
-  "description": ""
+  "dependencies": {
+    "nodemon": "^3.1.9"
+  }
 }

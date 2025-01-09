@@ -1,8 +1,3 @@
-import home from "./pages/Home";
-import about from "./pages/AboutMe";
-import snm from "./pages/SkillsAndProjects";
-import contact from "./pages/Contact";
-
 class Header extends HTMLElement {
     constructor() {
         super();
@@ -15,18 +10,19 @@ class Header extends HTMLElement {
     listen(el) {
         el.addEventListener("click", () => {
             const content = document.getElementById("content");
-            switch(el.attributes.id) {
+
+            switch(el.attributes.id.value) {
                 case "about":
-                    content.innerHTML = about;
+                    content.innerHTML = `<about-me-page></about-me-page>`;
                     break;
                 case "skills":
-                    content.innerHTML = snm;
+                    content.innerHTML = `<skills-and-projects-page></skills-and-projects-page>`;
                     break;
                 case "contact":
-                    content.innerHTML = contact;
+                    content.innerHTML = `<contact-page></contact-page>`;
                     break;
                 default:
-                    content.innerHTML = home;
+                    content.innerHTML = `<home-page></home-page>`;
             }
         });
     }

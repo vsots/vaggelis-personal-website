@@ -1,3 +1,7 @@
+import './AboutMe.js';
+import './SkillsAndProjects.js';
+import './Contact.js';
+
 class Home extends HTMLElement {
     constructor() {
         super();
@@ -24,5 +28,3 @@ const homeHTML = `
 `
 
 customElements.define('home-page', Home);
-const home = document.querySelector('home-page');
-export default home;

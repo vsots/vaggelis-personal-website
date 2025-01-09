@@ -20,5 +20,3 @@ const contactHTML = `
 `;
 
 customElements.define('contact-page', Contact);
-const contact = document.querySelector('contact-page');
-export default contact;

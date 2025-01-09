@@ -26,5 +26,3 @@ const skillsAndProjectsHTML = `
 `
 
 customElements.define("skills-and-projects-page", SkillsAndProjects);
-const snm = document.querySelector('skills-and-projects-page');
-export default snm;

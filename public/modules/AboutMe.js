@@ -42,5 +42,3 @@ const aboutMeHTML = `
 `
 
 customElements.define('about-me-page', AboutMe);
-const about = document.querySelector('about-me-page');
-export default about;
