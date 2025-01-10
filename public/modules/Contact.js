@@ -1,7 +1,7 @@
 class Contact extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: 'open'}).innerHTML = contactHTML;
+        this.attachShadow({mode: 'closed'}).innerHTML = contactHTML;
         // const txt = this.shadowRoot.querySelector('textarea');
         // const body = document.querySelector('body');
         // console.log('HEIGHT');
@@ -14,15 +14,17 @@ class Contact extends HTMLElement {
 }
 
 const contactCSS = `
-    height: 75vh;
+    #contact {
+        height: 75vh;
+    }
+    
+    #contact-text {
+        font-size: 3rem;
+    }
 
     #form {
         display: flex;
         flex-direction: column;
-    }
-
-    #contact-text {
-        font-size: 3rem;
     }
 
     label {
@@ -42,8 +44,8 @@ const contactCSS = `
     textarea {
         display: block;
         margin-top: 0.7rem;
-        height: 36.59%;
-        width: 84.34%;
+        height: 35vh;
+        width: 85vw;
     }
 `;
 
