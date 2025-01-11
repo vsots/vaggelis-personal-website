@@ -1,14 +1,15 @@
 class Footer extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: "closed"}).innerHTML = `${footerHtml}`;
+        this.attachShadow({mode: "open"}).innerHTML = `${footerHtml}`;
     }
 }
 
 const footerCss = `
     .footer {
-        height: 10vh;
-        position: fixed;
+        box-sizing: border-box;
+        height: 16vh;
+        position: sticky;
         bottom: 0;
         width: 100%;
         display: flex;
@@ -17,6 +18,7 @@ const footerCss = `
         padding-bottom: 3em;
         padding-top: 3em;
         border-top: 1px black solid;
+        background-color: white;
     }
 
     .icon {

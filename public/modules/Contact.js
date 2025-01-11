@@ -1,7 +1,7 @@
 class Contact extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: 'closed'}).innerHTML = contactHTML;
+        this.attachShadow({mode: 'open'}).innerHTML = contactHTML;
         // const txt = this.shadowRoot.querySelector('textarea');
         // const body = document.querySelector('body');
         // console.log('HEIGHT');
@@ -15,37 +15,43 @@ class Contact extends HTMLElement {
 
 const contactCSS = `
     #contact {
-        height: 75vh;
+        box-sizing: border-box;
+        height: 66vh;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 4.5fr 1.5fr;
+        gap: 1.5rem;
     }
     
     #contact-text {
-        font-size: 3rem;
-    }
-
-    #form {
-        display: flex;
-        flex-direction: column;
+        font-size: 3.5rem;
+        margin-bottom: 0;
     }
 
     label {
         display: block;
-        margin-bottom: 1.5rem;
         font-size: 2.5rem;
         font-weight: 600;
     }
 
     input {
         display: block;
-        margin-top: 0.7rem;
-        width: 20rem;
-        height: 2.2rem;
+        margin-top: 1rem;
+        width: 40vw;
+        height: 3.5rem;
     }
-    
+
     textarea {
         display: block;
-        margin-top: 0.7rem;
-        height: 35vh;
-        width: 85vw;
+        margin-top: 1rem;
+        height: 90%;
+        width: 90vw;
+    }
+    
+    button {
+        display: block;
+        margin-top: 1.5rem;
+        width: 33vw;
+        height: 50%;
     }
 `;
 
@@ -53,25 +59,23 @@ const contactHTML = `
     <style>${contactCSS}</style>
     <div id="contact">
         <h1 id="contact-text">Contact</h1>
-        <div id="form">
-            <label>
-                Name
-                <input type="text" name="Name" id="name" placeholder="Name" />
-            </label>
-            <label>
-                Email
-                <input type="text" name="Email" id="email" placeholder="Email" />
-            </label>
-            <label>
-                Subject
-                <input type="text" name="Subject" id="subject" placeholder="Subject" />
-            </label>
-            <label>
-                Message
-                <textarea name="Message" id="message" placeholder="Message"></textarea>
-            </label>
-            <button>Submit</button>
-        </div>
+        <label>
+            Name
+            <input type="text" name="Name" id="name" placeholder="Name" />
+        </label>
+        <label>
+            Email
+            <input type="text" name="Email" id="email" placeholder="Email" />
+        </label>
+        <label>
+            Subject
+            <input type="text" name="Subject" id="subject" placeholder="Subject" />
+        </label>
+        <label>
+            Message
+            <textarea name="Message" id="message" placeholder="Message"></textarea>
+        </label>
+        <button>Submit</button>
     </div>
 `;
 

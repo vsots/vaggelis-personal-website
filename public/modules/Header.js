@@ -30,9 +30,13 @@ class Header extends HTMLElement {
 
 const headerCss = `
     #header {
-        height: 15vh;
+        box-sizing: border-box;
+        height: 17vh;
         padding: 2em 2em 0 2em;
         border-bottom: 1px black solid;
+        position: sticky;
+        top: 0;
+        background-color: white;
     }
 
     .title {
