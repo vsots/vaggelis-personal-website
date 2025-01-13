@@ -2,6 +2,11 @@ class Contact extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: 'open'}).innerHTML = contactHTML;
+        const form = this.shadowRoot.querySelector('#contact');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+        })
         // const txt = this.shadowRoot.querySelector('textarea');
         // const body = document.querySelector('body');
         // console.log('HEIGHT');
@@ -11,6 +16,8 @@ class Contact extends HTMLElement {
         // console.log(getComputedStyle(txt).width);
         // console.log(getComputedStyle(body).width);
     }
+
+    
 }
 
 const contactCSS = `
@@ -57,26 +64,26 @@ const contactCSS = `
 
 const contactHTML = `
     <style>${contactCSS}</style>
-    <div id="contact">
+    <form id="contact">
         <h1 id="contact-text">Contact</h1>
         <label>
-            Name
-            <input type="text" name="Name" id="name" placeholder="Name" />
+            Name <span aria-label="required">*</span>
+            <input name="Name" placeholder="Name" required />
         </label>
         <label>
-            Email
-            <input type="text" name="Email" id="email" placeholder="Email" />
+            Email <span aria-label="required">*</span>
+            <input type="email" name="Email" placeholder="Email" required />
         </label>
         <label>
             Subject
-            <input type="text" name="Subject" id="subject" placeholder="Subject" />
+            <input name="Subject" placeholder="Subject" />
         </label>
         <label>
-            Message
-            <textarea name="Message" id="message" placeholder="Message"></textarea>
+            Message <span aria-label="required">*</span>
+            <textarea name="Message" placeholder="Message" required></textarea>
         </label>
-        <button>Submit</button>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
 `;
 
 customElements.define('contact-page', Contact);
