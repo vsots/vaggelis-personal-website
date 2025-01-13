@@ -37,16 +37,24 @@ const footerHtml = `
     <style>${footerCss}</style>
     <div class="footer">
         <div class="icon">
-            <a><img src="./media/email.svg" alt="Email"/></a>
+            <a href="mailto:vsotsdev@gmail.com">
+                <img src="./media/email.svg" alt="Email"/>
+            </a>
         </div>
         <div class="icon">
-            <a><img src="./media/phone.svg" alt="Phone"/></a>
+            <a href="tel:+17089971769">
+                <img src="./media/phone.svg" alt="Phone"/>
+            </a>
         </div>
         <div class="icon">
-            <a><img src="./media/linkedin.svg" alt="LinkedIn"/></a>
+            <a href="https://www.linkedin.com/in/vaggelis-sotiropoulos" target="_blank" rel="noreferrer">
+                <img src="./media/linkedin.svg" alt="LinkedIn"/>
+            </a>
         </div>
         <div class="icon">
-            <a><img src="./media/github.svg" alt="GitHub"/></a>
+            <a href="https://github.com/vsots" target="_blank" rel="noreferrer">
+                <img src="./media/github.svg" alt="GitHub"/>
+            </a>
         </div>
     </div>
 `;
