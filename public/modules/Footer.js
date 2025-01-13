@@ -1,30 +1,34 @@
 class Footer extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: "open"}).innerHTML = `${footerHtml}`;
+        this.attachShadow({mode: "closed"}).innerHTML = `${footerHtml}`;
     }
 }
 
 const footerCss = `
     .footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
         box-sizing: border-box;
         height: 16vh;
         position: sticky;
         bottom: 0;
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding-bottom: 3em;
-        padding-top: 3em;
+        padding-bottom: 3rem;
+        padding-top: 3rem;
         border-top: 1px black solid;
         background-color: white;
     }
 
     .icon {
+        display: flex;
+        align-items: center;
+        height: 55%;
         border: 1px black solid;
         border-radius: 20%;
-        padding: 3em;
+        padding: 3rem;
     }
 
     img {
