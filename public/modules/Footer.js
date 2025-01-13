@@ -13,8 +13,9 @@ const footerCss = `
         align-items: center;
         box-sizing: border-box;
         height: 16vh;
-        position: sticky;
+        position: fixed;
         bottom: 0;
+        left: 0;
         width: 100%;
         padding-bottom: 3rem;
         padding-top: 3rem;
