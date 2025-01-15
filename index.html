@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./public/css/index.css" />
+        <script type="importmap">
+            {
+                "imports": {
+                    "dompurify": "/node_modules/dompurify/dist/purify.es.mjs"
+                }
+            }
+        </script>
+        <script type="module" src="./public/modules/Header.js"></script>
+        <script type="module" src="./public/modules/Home.js"></script>
+        <script type="module" src="./public/modules/AboutMe.js"></script>
+        <script type="module" src="./public/modules/SkillsAndProjects.js"></script>
+        <script type="module" src="./public/modules/Contact.js"></script>
+        <script type="module" src="./public/modules/Footer.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <header-and-menu></header-and-menu>
+            <div id="content">
+                <home-page></home-page>
+            </div>
+            <footer-menu></footer-menu>
+        </div>
+    </body>
+</html>

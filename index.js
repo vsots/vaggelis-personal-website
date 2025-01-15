@@ -12,22 +12,27 @@ server.listen(port, host, () => {
 
 function handler(req, res) {
     const reader = (contentType) => {
-        fs.readFile('./public' + (req.url === '/' ? '/index.html' : req.url), (err, data) => {
+        const isImage = (contentType === "image/jpeg") || (contentType === "image/svg+xml")
+        const filePath = (isImage ? './public' : '.') + (req.url === '/' ? '/index.html' : req.url);
+
+        fs.readFile(filePath, (err, data) => {
             if (err == null) {
                 res.writeHeader(200, {'Content-Type' : contentType});
                 res.write(data);
                 res.end();
             } else {
-                console.error(err);
+                console.error(err);  
             }
         });
     }
-
 
     const includes = (ext) => req.url.includes(ext) ? req.url : null;
 
     switch (req.url) {
         case includes('.js'):
+            reader('text/javascript');
+            break;
+        case includes('.mjs'):
             reader('text/javascript');
             break;
         case includes('.css'): 

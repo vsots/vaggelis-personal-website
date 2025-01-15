@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify';
+
 class Contact extends HTMLElement {
     constructor() {
         super();
@@ -6,6 +8,11 @@ class Contact extends HTMLElement {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const data = new FormData(form);
+            
+            const name = DOMPurify.sanitize(data.get("Name"));
+            const email = DOMPurify.sanitize(data.get("Email"));
+            const subject = DOMPurify.sanitize(data.get("Subject"));
+            const message = DOMPurify.sanitize(data.get("Message"));
         })
         // const txt = this.shadowRoot.querySelector('textarea');
         // const body = document.querySelector('body');

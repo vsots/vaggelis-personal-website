@@ -1,10 +1,10 @@
 {
   "name": "vaggelis-personal-website",
   "version": "1.0.0",
-  "main": "index.mjs",
-  "tpye": "module",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon index.mjs"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,7 @@
     "url": "https://github.com/vsots/vaggelis-personal-website/issues"
   },
   "dependencies": {
+    "dompurify": "^3.2.3",
     "nodemon": "^3.1.9"
   }
 }
