@@ -1,7 +1,3 @@
-import './AboutMe.js';
-import './SkillsAndProjects.js';
-import './Contact.js';
-
 class Home extends HTMLElement {
     constructor() {
         super();

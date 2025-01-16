@@ -14,17 +14,7 @@ class Contact extends HTMLElement {
             const subject = DOMPurify.sanitize(data.get("Subject"));
             const message = DOMPurify.sanitize(data.get("Message"));
         })
-        // const txt = this.shadowRoot.querySelector('textarea');
-        // const body = document.querySelector('body');
-        // console.log('HEIGHT');
-        // console.log(getComputedStyle(txt).height);
-        // console.log(getComputedStyle(body).height);
-        // console.log('TXTWIDTH');
-        // console.log(getComputedStyle(txt).width);
-        // console.log(getComputedStyle(body).width);
     }
-
-    
 }
 
 const contactCSS = `
