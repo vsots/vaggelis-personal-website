@@ -8,7 +8,6 @@ class Contact extends HTMLElement {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const data = new FormData(form);
-            
             const name = DOMPurify.sanitize(data.get("Name"));
             const email = DOMPurify.sanitize(data.get("Email"));
             const subject = DOMPurify.sanitize(data.get("Subject"));
@@ -69,7 +68,14 @@ const contactHTML = `
         </label>
         <label>
             Email <span aria-label="required">*</span>
-            <input type="email" name="Email" placeholder="Email" required />
+            <input
+                type="email" 
+                name="Email"
+                title="Your Email Address"
+                pattern="([\\w!#$%&\'*\\-+\\/=?^\`\\{\\|\\}~][\\w!#$%&\'*\\-+\\/=?^\`\\{\\|\\}~.]{1,62}?[\\w!#$%&\'*\\-+\\/=?^\`\\{\\|\\}~])@(([A-Za-z0-9][A-Za-z0-9\\-]{1,61}?[A-Za-z0-9].)([A-Za-z0-9][A-Za-z0-9\\-]{1,61}?[A-Za-z0-9].)?([A-Za-z0-9][A-Za-z0-9\\-]{1,61}?[A-Za-z0-9]))"
+                placeholder="Email"
+                required 
+            />
         </label>
         <label>
             Subject
