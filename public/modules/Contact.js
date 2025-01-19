@@ -5,13 +5,34 @@ class Contact extends HTMLElement {
         super();
         this.attachShadow({mode: 'open'}).innerHTML = contactHTML;
         const form = this.shadowRoot.querySelector('#contact');
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const data = new FormData(form);
-            const name = DOMPurify.sanitize(data.get("Name"));
-            const email = DOMPurify.sanitize(data.get("Email"));
-            const subject = DOMPurify.sanitize(data.get("Subject"));
-            const message = DOMPurify.sanitize(data.get("Message"));
+            const profiles = {
+                USE_PROFILES: {
+                    mathMl: false,
+                    svg: false,
+                    svgFilters: false,
+                    html: false
+                }
+            }
+            const name = DOMPurify.sanitize(data.get("Name"), profiles);
+            const email = DOMPurify.sanitize(data.get("Email"), profiles);
+            const subject = DOMPurify.sanitize(data.get("Subject"), profiles);
+            const message = DOMPurify.sanitize(data.get("Message"), profiles);
+            const json = JSON.stringify({name, email, "subject": (subject.length ? subject : 'No Subject'), message});
+
+            const res = await fetch('http://127.0.0.1:8080/contactsubmission', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: json 
+            });
+            if (res.status === 400) {
+                const text = await res.text();
+                console.log(text);
+            } else console.log(res.status);
         })
     }
 }
