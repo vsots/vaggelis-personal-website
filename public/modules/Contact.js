@@ -22,17 +22,21 @@ class Contact extends HTMLElement {
             const message = DOMPurify.sanitize(data.get("Message"), profiles);
             const json = JSON.stringify({name, email, "subject": (subject.length ? subject : 'No Subject'), message});
 
-            const res = await fetch('http://127.0.0.1:8080/contactsubmission', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: json 
-            });
-            if (res.status === 400) {
-                const text = await res.text();
-                console.log(text);
-            } else console.log(res.status);
+            try {
+                const res = await fetch('http://127.0.0.1:8080/contactsubmission', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: json
+                });
+                if (res.status === 400) {
+                    const text = await res.text();
+                    console.log(text);
+                } else console.log(res.status);
+            } catch(error) {
+                console.log(error.message);
+            }
         })
     }
 }
