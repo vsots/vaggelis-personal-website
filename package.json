@@ -11,12 +11,10 @@
     "url": "git+https://github.com/vsots/vaggelis-personal-website.git"
   },
   "author": "Vaggelis Sotiropoulos",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vsots/vaggelis-personal-website/issues"
-  },
   "dependencies": {
-    "dompurify": "^3.2.3",
+    "dompurify": "^3.2.3"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.9"
   }
 }
