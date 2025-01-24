@@ -13,7 +13,7 @@ server.listen(port, host, () => {
 function handler(req, res) {
     const reader = (contentType) => {
         const isImage = (contentType === "image/jpeg") || (contentType === "image/svg+xml")
-        const filePath = (isImage ? './public' : '.') + (req.url === '/' ? '/index.html' : req.url);
+        const filePath = (isImage ? './src' : '.') + (req.url === '/' ? '/index.html' : req.url);
 
         fs.readFile(filePath, (err, data) => {
             if (err == null) {
