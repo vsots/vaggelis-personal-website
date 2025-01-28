@@ -6,60 +6,53 @@ class Footer extends HTMLElement {
 }
 
 const footerCss = `
-    .footer {
+    #footer {
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
-        box-sizing: border-box;
-        height: 16vh;
-        position: relative;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding-bottom: 3rem;
-        padding-top: 3rem;
+        padding: 2rem 1.9rem;
         border-top: 1px black solid;
         background-color: white;
     }
 
-    .icon {
+    #icons {
         display: flex;
-        align-items: center;
-        height: 55%;
-        border: 1px black solid;
-        border-radius: 20%;
-        padding: 3rem;
+    }
+
+    .icon {
+        padding: 0 0.9rem;
     }
 
     img {
-        height: 5vh;
-        width: 5vh;
+        height: 2rem;
     }
 `;
 
 const footerHtml = `
     <style>${footerCss}</style>
-    <div class="footer">
-        <div class="icon">
-            <a href="mailto:vsotsdev@gmail.com">
-                <img src="./media/email.svg" alt="Email"/>
-            </a>
-        </div>
-        <div class="icon">
-            <a href="tel:+17089971769">
-                <img src="./media/phone.svg" alt="Phone"/>
-            </a>
-        </div>
-        <div class="icon">
-            <a href="https://www.linkedin.com/in/vaggelis-sotiropoulos" target="_blank" rel="noreferrer">
-                <img src="./media/linkedin.svg" alt="LinkedIn"/>
-            </a>
-        </div>
-        <div class="icon">
-            <a href="https://github.com/vsots" target="_blank" rel="noreferrer">
-                <img src="./media/github.svg" alt="GitHub"/>
-            </a>
+    <div id="footer">
+        <h3 id="footer-title">Vaggelis Sotiropoulos</h3>
+        <div id="icons">
+            <div class="icon">
+                <a href="tel:+17089971769">
+                    <img src="./media/phone.svg" alt="Phone"/>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="mailto:vsotsdev@gmail.com">
+                    <img src="./media/email.svg" alt="Email"/>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="https://github.com/vsots" target="_blank" rel="noreferrer">
+                    <img src="./media/github.svg" alt="GitHub"/>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="https://www.linkedin.com/in/vaggelis-sotiropoulos" target="_blank" rel="noreferrer">
+                    <img src="./media/linkedin.svg" alt="LinkedIn"/>
+                </a>
+            </div>
         </div>
     </div>
 `;

@@ -32,7 +32,6 @@ const headerCss = `
         left: 0;
         background-color: white;
         padding: 1.3rem 1.9rem;
-        /* border-bottom: 1px #171D3A solid; */
         display: flex;
         justify-content: space-between;
         align-items: center;

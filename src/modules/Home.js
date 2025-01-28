@@ -65,7 +65,7 @@ const homeHTML = `
                     Vaggelis is a front-end leaning full-stack software engineer with over five years of professional experience. 
                     He currently resides in the San Francisco Bay Area working on Open Source and personal projects.
                 </h3>
-                <h3>Check out his social and contact links — including GitHub — in the footer!</h3>
+                <h3>Check out the contact and social links in the footer!</h3>
             </div>
             <div id="profile-pic">
                 <img src="../media/Vaggelis_Sotiropoulos_Profile_Photo.jpeg" />
