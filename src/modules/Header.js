@@ -27,22 +27,20 @@ class Header extends HTMLElement {
 
 const headerCss = `
     #header {
-        box-sizing: border-box;
-        position: fixed;
+        position: sticky;
         top: 0;
         left: 0;
-        width: 100%;
         background-color: white;
-        padding: 1rem 1.5rem;
-        border-bottom: 1px black solid;
+        padding: 1.3rem 1.9rem;
+        /* border-bottom: 1px #171D3A solid; */
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
     #name {
-        font-size: 2.15rem;
-        font-weight: 500;
+        font-size: 2.1rem;
+        font-weight: 400;
         margin: 0;
     }
 
@@ -53,6 +51,7 @@ const headerCss = `
     #menu > h3 {
         padding: 0 0.7rem;
         font-size: 1.1rem;
+        font-weight: 300;
         margin: 0;
     }
 `;
