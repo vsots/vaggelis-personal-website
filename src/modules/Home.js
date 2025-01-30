@@ -7,7 +7,7 @@ class Home extends HTMLElement {
 
 const homeCSS = `
     #home {
-        padding: 7.2rem 1.8rem;
+        padding: 7.2rem 1.9rem;
     }
 
     #brief {
