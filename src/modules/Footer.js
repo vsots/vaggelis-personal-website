@@ -10,7 +10,7 @@ const footerCss = `
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem 1.9rem;
+        padding: 1.5rem 1.9rem;
         border-top: 1px black solid;
         background-color: white;
     }
