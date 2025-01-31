@@ -5,8 +5,10 @@ class Contact extends HTMLElement {
         super();
         this.attachShadow({mode: 'open'}).innerHTML = contactHTML;
         const form = this.shadowRoot.querySelector('#contact-form');
+        const buttonText = this.shadowRoot.querySelector('button > h3')
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            buttonText.innerHTML = 'Submitting';
             const data = new FormData(form);
             const profiles = {
                 USE_PROFILES: {
@@ -33,7 +35,10 @@ class Contact extends HTMLElement {
                 if (res.status === 400) {
                     const text = await res.text();
                     console.log(text);
-                } else console.log(res.status);
+                } else {
+                    console.log(res.status);
+                    form.innerHTML = `<h3>Thank you!</h3>`
+                }
             } catch(error) {
                 console.log(error.message);
             }
@@ -48,7 +53,6 @@ const contactCSS = `
 
     #contact-body {
         display: flex;
-        justify-content: space-evenly;
         font-family: Esteban;
         color: #171D3A;
     }
