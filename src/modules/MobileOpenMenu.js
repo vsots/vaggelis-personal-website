@@ -4,6 +4,15 @@ class MobileOpenMenu extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: "open"}).innerHTML = mobileMenuHTML;
+        this.style.display = "none";
+        this.style.position = "absolute";
+        this.style.paddingTop = "20rem";
+        this.style.top = "10.2rem";
+        this.style.left = "0";
+        this.style.backgroundColor = "white";
+        this.style.zIndex = "1";
+        this.style.height = "100vh";
+        this.style.width = "100vw";
     }
 
     connectedCallback() {
@@ -19,14 +28,6 @@ const mobileMenuCSS = `
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 20rem;
-        position: absolute;
-        top: 10.2rem;
-        left: 0;
-        background-color: white;
-        z-index: 1;
-        height: 100vh;
-        width: 100vw;
     }
 
     #mobile-menu-items > h3 {

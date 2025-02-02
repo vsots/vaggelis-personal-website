@@ -1,5 +1,6 @@
-import { navLink } from "./helpers.js";
 import "./MobileOpenMenu.js";
+import { navLink, toggleMobileMenuGlyph } from "./helpers.js";
+
 
 class Header extends HTMLElement {
     constructor() {
@@ -13,21 +14,166 @@ class Header extends HTMLElement {
         const screenWidth = window.screen.width;
         
         if (screenWidth <= 700) { 
-            navLink(this.shadowRoot.querySelector("#name"));
+            navLink(this.shadowRoot.querySelector("#name"), this);
             menu.addEventListener("click", (_) => {
                 const mobileMenuElem = this.shadowRoot.querySelector("mobile-open-menu");
                 const isMobileMenuElemOpen = mobileMenuElem.computedStyleMap().get("display").value;
 
-                if (isMobileMenuElemOpen === "none") mobileMenuElem.style.display = "block";
-                else mobileMenuElem.style.display = "none";
+                let isOpen;
+                if (isMobileMenuElemOpen === "none") {
+                    mobileMenuElem.style.display = "block";
+                    mobileMenuElem.style.animation = "fadeIn 0.3s ease-out 0s 1 normal forwards running";
+                    isOpen = true;
+                } else {
+                    mobileMenuElem.style.animation = "fadeOut 0.2s ease-out 0s 1 normal forwards";
+                    isOpen = false;
+                }
+
+                toggleMobileMenuGlyph(this, isOpen);
             });
         } else links.forEach(node => navLink(node));
     }
+
 }
 
 const headerCss = `
-    mobile-open-menu {
-        display: none;
+    @keyframes rotate45 {
+        0% {
+            margin-bottom: 0.8rem;
+        }
+        
+        33% {
+            transform: rotate(75deg);
+            margin-bottom: 0.5rem;
+        }
+
+        66% {
+            transform: rotate(150deg);
+            margin-bottom: 0.2rem;
+        }
+
+        100% { 
+            transform: rotate(225deg);
+            margin: 0;
+            grid-column-start: 1;
+            grid-row-start: 1;
+        } 
+    }
+    
+    @keyframes rotateMinus45 {
+        0% {
+            margin-bottom: 0.8rem;
+        }
+        
+        33% {
+            transform: rotate(-75deg);
+            margin-bottom: 0.5rem;
+        }
+
+        66% {
+            transform: rotate(-150deg);
+            margin-bottom: 0.2rem;
+        }
+
+        100% { 
+            transform: rotate(-225deg);
+            margin: 0;
+            grid-column-start: 1;
+            grid-row-start: 1;
+        } 
+    }
+
+    @keyframes rotateBack45 {
+        0% {
+            transform: rotate(-135deg);
+            margin: 0;
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+        
+        33% {
+            transform: rotate(-90deg);
+            margin-bottom: 0.2rem;
+        }
+
+        66% {
+            transform: rotate(-45deg);
+            margin-bottom: 0.5rem;
+        }
+
+        100% { 
+            transform: rotate(0deg);
+            margin-bottom: 0.8rem;
+        } 
+    }
+    
+    @keyframes rotateBackMinus45 {
+        0% {
+            transform: rotate(135deg); 
+            margin: 0;
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+
+        33% {
+            transform: rotate(90deg);
+            margin-bottom: 0.2rem;
+        }
+
+        66% {
+            transform: rotate(45deg);
+            margin-bottom: 0.5rem;
+        }
+
+        100% {
+            transform: rotate(0deg);
+            margin-bottom: 0.8rem;
+        } 
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(3%);
+        }
+        
+        33% {
+            opacity: 0.33;
+            transform: translateY(2%);
+        }
+
+        66% {
+            opacity: 0.66;
+            transform: translateY(1%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        33% {
+            opacity: 0.66;
+            transform: translateY(1%);
+        }
+
+        66% {
+            opacity: 0.33;
+            transform: translateY(2%);
+        }
+
+        100% {
+            display: none;
+            opacity: 0;
+            transform: translateY(3%);
+        }
     }
 
     @media screen and (max-device-width: 701px) {
@@ -46,6 +192,10 @@ const headerCss = `
             font-size: 1.8rem;
             font-weight: 400;
             margin: 0;
+        }
+
+        #menu {
+            display: grid;
         }
 
         hr {
@@ -78,16 +228,12 @@ const headerCss = `
             font-weight: 400;
             margin: 0;
         }
-        
-        #lines {
-            display: none;
-        }
 
         #menu {
             display: flex;
         }
         
-        #menu > hr {
+        hr {
             display: none;
         }
         
