@@ -6,25 +6,62 @@ class Footer extends HTMLElement {
 }
 
 const footerCss = `
-    #footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5rem 1.9rem;
-        border-top: 1px black solid;
-        background-color: white;
+    @media screen and (min-device-width: 701px) {
+        #footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1.9rem;
+            border-top: 1px black solid;
+            background-color: white;
+        }
+
+        #icons {
+            display: flex;
+        }
+
+        .icon {
+            padding: 0 0.9rem;
+        }
+
+        img {
+            height: 2rem;
+        }
     }
 
-    #icons {
-        display: flex;
-    }
+    @media screen and (max-device-width: 701px) {
+        #footer {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 17rem;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-bottom: 3.0rem;
+            border-top: 1px black solid;
+            background-color: white;
+        }
+        
+        #footer-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin: 0;
+        }
 
-    .icon {
-        padding: 0 0.9rem;
-    }
+        #icons {
+            display: flex;
+        }
 
-    img {
-        height: 2rem;
+        .icon {
+            padding: 0 2rem;
+        }
+
+        img {
+            height: 4.0rem;
+        }
     }
 `;
 

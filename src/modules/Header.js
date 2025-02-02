@@ -189,7 +189,7 @@ const headerCss = `
         }
 
         #name {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 400;
             margin: 0;
         }
