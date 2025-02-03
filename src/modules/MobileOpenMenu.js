@@ -4,15 +4,19 @@ class MobileOpenMenu extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: "open"}).innerHTML = mobileMenuHTML;
-        this.style.display = "none";
-        this.style.position = "absolute";
-        this.style.paddingTop = "20rem";
-        this.style.top = "10.2rem";
-        this.style.left = "0";
-        this.style.backgroundColor = "white";
-        this.style.zIndex = "1";
-        this.style.height = "100vh";
-        this.style.width = "100vw";
+        const styles = {
+            display: "none",
+            position: "absolute",
+            paddingTop: "20rem",
+            top: "10.2rem",
+            left: "0",
+            backgroundColor: "white",
+            zIndex: "1",
+            height: "100vh",
+            width: "100vw"
+        }
+
+        Object.assign(this.style, styles);
     }
 
     connectedCallback() {

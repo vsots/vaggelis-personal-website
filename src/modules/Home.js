@@ -1,7 +1,7 @@
 class Home extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: 'closed'}).innerHTML = homeHTML;
+        this.attachShadow({mode: "closed"}).innerHTML = homeHTML;
     }
 }
 
@@ -12,7 +12,7 @@ const homeCSS = `
         }
 
         #about {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 600;
         }
         
@@ -22,7 +22,7 @@ const homeCSS = `
         }
 
         #work-exp {
-            font-size: 0.8rem;
+            font-size: 1rem;
             font-family: Esteban;
             font-weight: 300;
             margin-bottom: 5rem;
@@ -30,7 +30,7 @@ const homeCSS = `
         
         #work-exp > p {
             margin-top: 0;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         #profile-pic {
@@ -125,4 +125,4 @@ const homeHTML = `
     </div>
 `
 
-customElements.define('home-page', Home);
+customElements.define("home-page", Home);

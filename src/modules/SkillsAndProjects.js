@@ -6,90 +6,148 @@ class SkillsAndProjects extends HTMLElement {
 }
 
 const skillsAndProjectsCSS = `
-    #sna {
-        padding: 3rem 1.9rem;
-    }
+    @media screen and (max-width: 701px) {
+        #sna {
+            margin-top: 5rem;
+            margin-bottom: 8rem;
+        }
 
-    #skills {
-        margin-bottom: 15rem;
-    }
+        #skills {
+            margin-bottom: 8rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: x-large;
+            margin-bottom: 4rem;
+        }
+
+        #languages, .two-row-col, .two-row-col-alt {
+            margin-bottom: 4rem;
+        }
+
+        #languages > h2, .two-row-col > h2, .two-row-col-alt > h2 {
+            text-align: center;
+            font-size: large;
+        }
+
+        #languages > h2, .two-row-col > h2 {
+            text-align: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .two-row-col-alt > h2 {
+            margin-bottom: 0.2rem;
+        }
+
+        .skill-section > h3 {
+            text-align: center;
+            font-size: medium;
+            margin-bottom: 0.2rem;
+            margin-top: 0.7rem;
+        }
     
-    h1 {
-        text-align: center;
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .tools > p {
+            border: 2px #171D3A solid;
+            border-radius: 1rem;
+            padding: 0.2rem 0.7rem;
+            margin: 0.2rem 0.2rem;
+            font-size: small;
+        }
     }
 
-   #languages {
-        display: grid;
-        padding-top: 3rem;
-        margin: auto;
-        width: 40%;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 4.3rem 9rem;
-        grid-template-areas: 
-            "header header"
-            "main other";
-    }
-    
-    h2 {
-        grid-area: header;
-        text-align: center;
-    }
+    @media screen and (min-width: 701px) {
+        #sna {
+            padding: 3rem 1.9rem;
+        }
 
-    .skill-section:nth-child(2) {
-        grid-area: main;
-    }
+        #skills {
+            margin-bottom: 15rem;
+        }
 
-    .skill-section:nth-child(3) {
-        grid-area: other;
-    }
-    
-    h3 {
-        margin: 0;
-        text-align: center;
-    }
+        h1 {
+            text-align: center;
+        }
 
-    .tools {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0.7rem 0.7rem;
-        grid-area: section;
-    }
-    
-    .tools > p {
-        border: 2px #171D3A solid;
-        border-radius: 1rem;
-        padding: 0.2rem 0.7rem;
-        margin: 0.2rem 0.3rem;
-    }
-    
-    .two-row {
-        display: flex;
-        justify-content: space-evenly;
-    }
+        #languages {
+            display: grid;
+            padding-top: 3rem;
+            margin: auto;
+            width: 40%;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 4.3rem 9rem;
+            grid-template-areas: 
+                "header header"
+                "main other";
+        }
+        
+        h2 {
+            grid-area: header;
+            text-align: center;
+        }
 
-    .two-row-col {
-        display: grid;
-        width: 45%;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 4.3rem 12rem;
-        grid-template-areas: 
-            "header header"
-            "main other";
-    }
+        .skill-section:nth-child(2) {
+            grid-area: main;
+        }
 
-    .two-row-col-alt {
-        display: grid;
-        width: 45%;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 4.3rem auto;
-        grid-template-areas: 
-            "header header"
-            "section section";
-    }
+        .skill-section:nth-child(3) {
+            grid-area: other;
+        }
+        
+        h3 {
+            margin: 0;
+            text-align: center;
+        }
 
-    #projects {
-        margin-bottom: 12rem;
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.7rem 0.7rem;
+            grid-area: section;
+        }
+        
+        .tools > p {
+            border: 2px #171D3A solid;
+            border-radius: 1rem;
+            padding: 0.2rem 0.7rem;
+            margin: 0.2rem 0.3rem;
+        }
+        
+        .two-row {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .two-row-col {
+            display: grid;
+            width: 45%;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 4.3rem 12rem;
+            grid-template-areas: 
+                "header header"
+                "main other";
+        }
+
+        .two-row-col-alt {
+            display: grid;
+            width: 45%;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 4.3rem auto;
+            grid-template-areas: 
+                "header header"
+                "section section";
+        }
+
+        #projects {
+            margin-bottom: 12rem;
+        }
     }
 `;
 

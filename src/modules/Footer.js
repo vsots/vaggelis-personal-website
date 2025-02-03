@@ -6,7 +6,7 @@ class Footer extends HTMLElement {
 }
 
 const footerCss = `
-    @media screen and (min-device-width: 701px) {
+    @media screen and (min-width: 701px) {
         #footer {
             display: flex;
             justify-content: space-between;
@@ -29,7 +29,7 @@ const footerCss = `
         }
     }
 
-    @media screen and (max-device-width: 701px) {
+    @media screen and (max-width: 701px) {
         #footer {
             display: flex;
             height: 17rem;
@@ -52,11 +52,11 @@ const footerCss = `
         }
 
         .icon {
-            padding: 0 2rem;
+            /*padding: 0 2rem;*/
         }
 
         img {
-            height: 4.0rem;
+            height: 2rem;
         }
     }
 `;

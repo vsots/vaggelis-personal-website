@@ -176,20 +176,20 @@ const headerCss = `
         }
     }
 
-    @media screen and (max-device-width: 701px) {
+    @media screen and (max-width: 701px) {
         #header {
             position: sticky;
             top: 0;
             left: 0;
             background-color: white;
-            padding: 3.8rem 3.0rem;
+            padding: 0rem 0rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         #name {
-            font-size: 2.5rem;
+            font-size: large;
             font-weight: 400;
             margin: 0;
         }
@@ -211,7 +211,7 @@ const headerCss = `
         }
     }
     
-    @media screen and (min-device-width: 701px) {
+    @media screen and (min-width: 701px) {
         #header {
             position: sticky;
             top: 0;
