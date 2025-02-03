@@ -5,7 +5,7 @@ import { navLink, toggleMobileMenuGlyph } from "./helpers.js";
 class Header extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: "open"}).innerHTML = `${headerHtml}`;
+        this.attachShadow({mode: "open"}).innerHTML = headerHtml;
     }
 
     connectedCallback() {
@@ -39,17 +39,17 @@ class Header extends HTMLElement {
 const headerCss = `
     @keyframes rotate45 {
         0% {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.3rem;
         }
         
         33% {
             transform: rotate(75deg);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         66% {
             transform: rotate(150deg);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
 
         100% { 
@@ -62,17 +62,17 @@ const headerCss = `
     
     @keyframes rotateMinus45 {
         0% {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.3rem;
         }
         
         33% {
             transform: rotate(-75deg);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         66% {
             transform: rotate(-150deg);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
 
         100% { 
@@ -93,17 +93,17 @@ const headerCss = `
         
         33% {
             transform: rotate(-90deg);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
 
         66% {
             transform: rotate(-45deg);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         100% { 
             transform: rotate(0deg);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.3rem;
         } 
     }
     
@@ -117,17 +117,17 @@ const headerCss = `
 
         33% {
             transform: rotate(90deg);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
 
         66% {
             transform: rotate(45deg);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         100% {
             transform: rotate(0deg);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.3rem;
         } 
     }
 
@@ -182,7 +182,7 @@ const headerCss = `
             top: 0;
             left: 0;
             background-color: white;
-            padding: 0rem 0rem;
+            padding: 2rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -190,7 +190,6 @@ const headerCss = `
 
         #name {
             font-size: large;
-            font-weight: 400;
             margin: 0;
         }
 
@@ -200,10 +199,10 @@ const headerCss = `
 
         hr {
             border: none;
-            height: 2px;
+            height: 1px;
             background-color: #171D3A;
-            width: 3rem;
-            margin-bottom: 0.8rem;
+            width: 2rem;
+            margin-bottom: 0.3rem;
         }
 
         #menu > h3 {

@@ -32,18 +32,17 @@ const footerCss = `
     @media screen and (max-width: 701px) {
         #footer {
             display: flex;
-            height: 17rem;
+            height: 10rem;
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            padding-bottom: 3.0rem;
+            padding-bottom: 2rem;
             border-top: 1px black solid;
             background-color: white;
         }
         
         #footer-title {
-            font-size: 2.5rem;
-            font-weight: 400;
+            font-size: large;
             margin: 0;
         }
 
@@ -52,7 +51,7 @@ const footerCss = `
         }
 
         .icon {
-            /*padding: 0 2rem;*/
+            padding: 0 1rem;
         }
 
         img {

@@ -7,13 +7,13 @@ class MobileOpenMenu extends HTMLElement {
         const styles = {
             display: "none",
             position: "absolute",
-            paddingTop: "20rem",
-            top: "10.2rem",
+            paddingTop: "10rem",
+            top: "5.7rem",
             left: "0",
             backgroundColor: "white",
             zIndex: "1",
-            height: "100vh",
-            width: "100vw"
+            height: "100%",
+            width: "100%"
         }
 
         Object.assign(this.style, styles);
@@ -36,8 +36,7 @@ const mobileMenuCSS = `
 
     #mobile-menu-items > h3 {
         font-family: Poppins;
-        font-size: 3rem;
-        font-weight: 300;
+        font-size: x-large;
         color: #171D3A;
         margin: 1rem 0;
     }

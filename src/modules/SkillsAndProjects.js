@@ -8,7 +8,7 @@ class SkillsAndProjects extends HTMLElement {
 const skillsAndProjectsCSS = `
     @media screen and (max-width: 701px) {
         #sna {
-            margin-top: 5rem;
+            margin-top: 4rem;
             margin-bottom: 8rem;
         }
 

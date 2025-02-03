@@ -6,25 +6,23 @@ class Home extends HTMLElement {
 }
 
 const homeCSS = `
-    @media screen and (max-device-width: 701px) {
+    @media screen and (max-width: 701px) {
         #home {
-            padding: 10rem 3rem;
+            padding: 4rem 1.5rem;
         }
 
-        #about {
-            font-size: 1.8rem;
-            font-weight: 600;
+        #about > h3 {
+            font-size: large;
         }
         
         h3 {
             margin-top: 0;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
         }
 
         #work-exp {
-            font-size: 1rem;
+            font-size: large;
             font-family: Esteban;
-            font-weight: 300;
             margin-bottom: 5rem;
         }
         
@@ -42,10 +40,11 @@ const homeCSS = `
         img {
             border: 1px black solid;
             border-radius: 50%;
+            width: 50vw;
         }
     }
 
-    @media screen and (min-device-width: 701px) {
+    @media screen and (min-width: 701px) {
         #home {
             padding: 7.2rem 0;
             display: grid;
@@ -89,7 +88,6 @@ const homeCSS = `
         
         #profile-pic {
             grid-area: pic;
-            width: 50vw;
             display: flex;
             justify-content: center;
         }
