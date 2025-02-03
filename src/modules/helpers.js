@@ -33,8 +33,8 @@ export const toggleMobileMenuGlyph = (context, isOpen) => {
     else glyphs = context.shadowRoot.querySelectorAll("hr");
 
     if (!isOpen) {
-        glyphs[0].style.animation = "rotateBack45 0.2s ease-out 0s 1 normal forwards";
-        glyphs[1].style.animation = "rotateBackMinus45 0.2s ease-out 0s 1 normal forwards";
+        glyphs[0].style.animation = "rotateBack45 0.2s ease-in 0s 1 normal forwards";
+        glyphs[1].style.animation = "rotateBackMinus45 0.2s ease-in 0s 1 normal forwards";
     } else {
         glyphs[0].style.animation = "rotate45 0.3s ease-out 0s 1 normal forwards";
         glyphs[1].style.animation = "rotateMinus45 0.3s ease-out 0s 1 normal forwards";

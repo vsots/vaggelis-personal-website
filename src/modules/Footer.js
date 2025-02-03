@@ -32,10 +32,6 @@ const footerCss = `
     @media screen and (max-device-width: 701px) {
         #footer {
             display: flex;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             height: 17rem;
             flex-direction: column;
             justify-content: space-evenly;
