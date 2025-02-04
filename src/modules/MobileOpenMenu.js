@@ -4,6 +4,7 @@ class MobileOpenMenu extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: "open"}).innerHTML = mobileMenuHTML;
+        
         const styles = {
             display: "none",
             position: "absolute",
@@ -15,7 +16,6 @@ class MobileOpenMenu extends HTMLElement {
             height: "100%",
             width: "100%"
         }
-
         Object.assign(this.style, styles);
     }
 

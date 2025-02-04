@@ -1,3 +1,4 @@
+import "./TabActive.js";
 import "./MobileOpenMenu.js";
 import { navLink, toggleMobileMenuGlyph } from "./helpers.js";
 
@@ -31,7 +32,7 @@ class Header extends HTMLElement {
 
                 toggleMobileMenuGlyph(this, isOpen);
             });
-        } else links.forEach(node => navLink(node));
+        } else links.forEach(node => navLink(node, this));
     }
 
 }
@@ -220,11 +221,11 @@ const headerCss = `
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px black solid;
         }
 
         #name {
             font-size: 2.1rem;
-            font-weight: 400;
             margin: 0;
         }
 
@@ -237,10 +238,9 @@ const headerCss = `
         }
         
         #menu > h3 {
-            padding: 0 0.7rem;
+            margin: 0 0.7rem;
             font-size: 1.1rem;
             font-weight: 300;
-            margin: 0;
         }
     }
 `;
@@ -259,6 +259,7 @@ const headerHtml = `
             </div>
         </div>
         <mobile-open-menu></mobile-open-menu>
+        <tab-active></tab-active>
     </div>
 `;
 

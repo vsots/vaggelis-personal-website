@@ -23,6 +23,11 @@ export const navLink = (el, context) => {
                 mobileMenu.style.animation = "fadeOut 0.2s ease-out 0s 1 normal forwards";
                 toggleMobileMenuGlyph(context, false);
             }
+        } else {
+            const elInfo = el.getBoundingClientRect();
+            const tab = context.shadowRoot.querySelector("tab-active");
+            tab.style.left = elInfo.left;
+            tab.style.width = elInfo.width;
         }
     });
 }
