@@ -119,7 +119,7 @@ const contactCSS = `
             border: 2px #171D3A solid;
         }
 
-        button:hover {
+         button:hover, button:active {
             color: white;
             background-color: #171D3A;
             transition: color 0.2s, background-color 0.2s;
