@@ -4,6 +4,9 @@ class Contact extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: 'open'}).innerHTML = contactHTML;
+    }
+
+    connectedCallback() {
         const form = this.shadowRoot.querySelector('#contact-form');
         const buttonText = this.shadowRoot.querySelector('button > h3')
         form.addEventListener('submit', async (e) => {
@@ -47,93 +50,171 @@ class Contact extends HTMLElement {
 }
 
 const contactCSS = `
-    #contact {
-        padding: 6rem 1.9rem;
+    @media screen and (max-width: 701px) {
+        #contact {
+            padding: 4rem 1.5rem;
+        }
+
+        #contact-body {
+            font-family: Poppins;
+            color: #171D3A;
+        }
+
+        #info {
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: xx-large;
+            margin: 0;
+        }
+
+        #icons {
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .icon {
+            padding-right: 1.2rem;
+        }
+
+        img {
+            height: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        
+        label > span {
+            color: gray;
+        }
+
+        input[type="text"], input[type="email"] {
+            margin-top: 0.5rem;
+            display: block;
+            width: 100%;
+            height: 3rem;
+            padding: 0.3rem 0.8rem;
+            background-color: #FAFAFA;
+            border: 1px #171D3A solid;
+        }
+
+        textarea {
+            margin-top: 0.5rem;
+            display: block;
+            width: 100%;
+            height: 12rem;
+            padding: 0.7rem 0.8rem;
+            background-color: #FAFAFA;
+            border: 1px #171D3A solid;
+        }
+        
+        button {
+            display: block;
+            background-color: white;
+            padding: 0.25rem 2.25rem;
+            margin-top: 2.5rem;
+            border: 2px #171D3A solid;
+        }
+
+        button:hover {
+            color: white;
+            background-color: #171D3A;
+            transition: color 0.2s, background-color 0.2s;
+        }
     }
 
-    #contact-body {
-        display: flex;
-        font-family: Esteban;
-        color: #171D3A;
-    }
+    @media screen and (min-width: 701px) {
+        #contact {
+            padding: 6rem 1.9rem;
+        }
 
-    #info {
-        width: 50%;
-    }
-    
-    #contact-form {
-        width: 50%;
-    }
+        #contact-body {
+            display: flex;
+            font-family: Esteban;
+            color: #171D3A;
+        }
 
-    h1 {
-        margin-top: 0;
-        font-size: 3rem;
-        font-family: Poppins;
-        color: #171D3A;
-    }
-    
-    #info > p {
-        font-size: 1.2rem;
-    }
+        #info {
+            width: 50%;
+        }
+        
+        #contact-form {
+            width: 50%;
+        }
 
-    #icons {
-        display: flex;
-        margin-top: 3rem;
-    }
+        h1 {
+            margin-top: 0;
+            font-size: 3rem;
+            font-family: Poppins;
+            color: #171D3A;
+        }
+        
+        #info > p {
+            font-size: 1.2rem;
+        }
 
-    .icon {
-        padding-right: 1rem;
-    }
+        #icons {
+            display: flex;
+            margin-top: 3rem;
+        }
 
-    img {
-        height: 1.5rem;
-    }
+        .icon {
+            padding-right: 1rem;
+        }
 
-    label {
-        display: block;
-        margin-bottom: 1.5rem;
-    }
-    
-    label > span {
-        color: gray;
-        font-size: 0.75rem;
-    }
+        img {
+            height: 1.5rem;
+        }
 
-    input[type="text"], input[type="email"] {
-        margin-top: 0.5rem;
-        display: block;
-        width: 100%;
-        height: 3rem;
-        padding: 0.3rem 0.8rem;
-        font-size: 1.2rem;
-        background-color: #FAFAFA;
-        border: 1px #171D3A solid;
-    }
+        label {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        
+        label > span {
+            color: gray;
+            font-size: 0.75rem;
+        }
 
-    textarea {
-        margin-top: 0.5rem;
-        display: block;
-        width: 100%;
-        height: 12rem;
-        padding: 0.7rem 0.8rem;
-        font-size: 1.2rem;
-        background-color: #FAFAFA;
-        border: 1px #171D3A solid;
-    }
-    
-    button {
-        display: block;
-        font-family: Poppins;
-        color: #171D3A;
-        background-color: white;
-        padding: 0.25rem 2.25rem;
-        border: 2px #171D3A solid;
-    }
+        input[type="text"], input[type="email"] {
+            margin-top: 0.5rem;
+            display: block;
+            width: 100%;
+            height: 3rem;
+            padding: 0.3rem 0.8rem;
+            font-size: 1.2rem;
+            background-color: #FAFAFA;
+            border: 1px #171D3A solid;
+        }
 
-    button:hover {
-        color: white;
-        background-color: #171D3A;
-        transition: color 0.2s, background-color 0.2s;
+        textarea {
+            margin-top: 0.5rem;
+            display: block;
+            width: 100%;
+            height: 12rem;
+            padding: 0.7rem 0.8rem;
+            font-size: 1.2rem;
+            background-color: #FAFAFA;
+            border: 1px #171D3A solid;
+        }
+        
+        button {
+            display: block;
+            font-family: Poppins;
+            color: #171D3A;
+            background-color: white;
+            padding: 0.25rem 2.25rem;
+            border: 2px #171D3A solid;
+        }
+
+        button:hover {
+            color: white;
+            background-color: #171D3A;
+            transition: color 0.2s, background-color 0.2s;
+        }
     }
 `;
 

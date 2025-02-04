@@ -18,7 +18,7 @@ const skillsAndProjectsCSS = `
 
         h1 {
             text-align: center;
-            font-size: x-large;
+            font-size: xx-large;
             margin-bottom: 4rem;
         }
 
