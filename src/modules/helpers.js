@@ -24,10 +24,10 @@ export const navLink = (el, context) => {
                 toggleMobileMenuGlyph(context, false);
             }
         } else {
-            const elInfo = el.getBoundingClientRect();
-            const tab = context.shadowRoot.querySelector("tab-active");
-            tab.style.left = elInfo.left;
-            tab.style.width = elInfo.width;
+            const tabs = context.shadowRoot.querySelectorAll("#menu > h3");
+            tabs.forEach(tab => tab.style.borderBottom = "3px transparent solid");
+            if (el.id === "name") tabs[0].style.borderBottom = "3px #171D3A solid";
+            else el.style.borderBottom = "3px #171D3A solid";
         }
     });
 }

@@ -1,4 +1,3 @@
-import "./TabActive.js";
 import "./MobileOpenMenu.js";
 import { navLink, toggleMobileMenuGlyph } from "./helpers.js";
 
@@ -213,34 +212,45 @@ const headerCss = `
     
     @media screen and (min-width: 701px) {
         #header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            background-color: white;
-            padding: 1.3rem 1.9rem;
             display: flex;
+            background-color: white;
+            padding: 0 1.9rem;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px black solid;
         }
 
         #name {
             font-size: 2.1rem;
             margin: 0;
+            border-top: 3px transparent solid;
+            border-bottom: 3px transparent solid;
+            cursor: pointer;
         }
 
         #menu {
             display: flex;
+            align-items: center;
         }
         
         hr {
             display: none;
         }
-        
+
         #menu > h3 {
             margin: 0 0.7rem;
             font-size: 1.1rem;
-            font-weight: 300;
+            padding: 1.8rem 0;
+            cursor: pointer;
+        }
+        
+        #skills, #contact {
+            border-top: 3px transparent solid;
+            border-bottom: 3px transparent solid;
+        }
+
+        #home {
+            border-top: 3px transparent solid;
+            border-bottom: 3px #171D3A solid;
         }
     }
 `;
@@ -259,7 +269,6 @@ const headerHtml = `
             </div>
         </div>
         <mobile-open-menu></mobile-open-menu>
-        <tab-active></tab-active>
     </div>
 `;
 
