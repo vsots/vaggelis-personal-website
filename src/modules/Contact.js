@@ -1,9 +1,9 @@
-import DOMPurify from 'dompurify';
+import DOMPurify from "dompurify";
 
 class Contact extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: 'open'}).innerHTML = contactHTML;
+        this.attachShadow({mode: "open"}).innerHTML = contactHTML;
     }
 
     connectedCallback() {
@@ -50,9 +50,9 @@ class Contact extends HTMLElement {
 }
 
 const contactCSS = `
-    @media screen and (max-width: 701px) {
+    @media screen and (max-width: 769px) {
         #contact {
-            padding: 4rem 1.5rem;
+            padding: 4rem 1.5rem 3rem;
         }
 
         #contact-body {
@@ -126,7 +126,7 @@ const contactCSS = `
         }
     }
 
-    @media screen and (min-width: 701px) {
+    @media screen and (min-width: 769px) {
         #contact {
             padding: 6rem 1.9rem;
         }
@@ -208,6 +208,7 @@ const contactCSS = `
             background-color: white;
             padding: 0.25rem 2.25rem;
             border: 2px #171D3A solid;
+            cursor: pointer;
         }
 
         button:hover {

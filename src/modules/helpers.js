@@ -13,7 +13,7 @@ export const navLink = (el, context) => {
                 content.innerHTML = `<home-page></home-page>`;
         }
 
-        if (context && window.screen.width <= 700) {
+        if (context && window.innerWidth <= 768) {
             let mobileMenu;
 
             if (context.localName === "mobile-open-menu") mobileMenu = context;
@@ -44,6 +44,4 @@ export const toggleMobileMenuGlyph = (context, isOpen) => {
         glyphs[0].style.animation = "rotate45 0.3s ease-out 0s 1 normal forwards";
         glyphs[1].style.animation = "rotateMinus45 0.3s ease-out 0s 1 normal forwards";
     }
-    
 }
-

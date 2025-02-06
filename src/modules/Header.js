@@ -11,9 +11,9 @@ class Header extends HTMLElement {
     connectedCallback() {
         const menu = this.shadowRoot.querySelector("#menu");
         const links = this.shadowRoot.querySelectorAll("h3");
-        const screenWidth = window.screen.width;
+        const screenWidth = window.innerWidth;
         
-        if (screenWidth <= 700) { 
+        if (screenWidth <= 768) { 
             navLink(this.shadowRoot.querySelector("#name"), this);
             menu.addEventListener("click", (_) => {
                 const mobileMenuElem = this.shadowRoot.querySelector("mobile-open-menu");
@@ -176,7 +176,7 @@ const headerCss = `
         }
     }
 
-    @media screen and (max-width: 701px) {
+    @media screen and (max-width: 769px) {
         #header {
             position: sticky;
             top: 0;
@@ -209,8 +209,8 @@ const headerCss = `
             display: none;
         }
     }
-    
-    @media screen and (min-width: 701px) {
+
+    @media screen and (min-width: 769px) {
         #header {
             display: flex;
             background-color: white;
@@ -239,7 +239,7 @@ const headerCss = `
         #menu > h3 {
             margin: 0 0.7rem;
             font-size: 1.1rem;
-            padding: 1.8rem 0;
+            padding: 2.3rem 0;
             cursor: pointer;
         }
         

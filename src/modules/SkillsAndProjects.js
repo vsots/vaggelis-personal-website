@@ -1,15 +1,15 @@
 class SkillsAndProjects extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: 'closed'}).innerHTML = skillsAndProjectsHTML;
+        this.attachShadow({mode: "open"}).innerHTML = skillsAndProjectsHTML;
     }
 }
 
 const skillsAndProjectsCSS = `
-    @media screen and (max-width: 701px) {
+    @media screen and (max-width: 1025px) {
         #sna {
-            margin-top: 4rem;
-            margin-bottom: 8rem;
+            padding-top: 4rem;
+            padding-bottom: 3rem;
         }
 
         #skills {
@@ -62,9 +62,9 @@ const skillsAndProjectsCSS = `
         }
     }
 
-    @media screen and (min-width: 701px) {
+    @media screen and (min-width: 1025px) {
         #sna {
-            padding: 3rem 1.9rem;
+            padding: 3rem 1.9rem 6rem;
         }
 
         #skills {
@@ -143,10 +143,6 @@ const skillsAndProjectsCSS = `
             grid-template-areas: 
                 "header header"
                 "section section";
-        }
-
-        #projects {
-            margin-bottom: 12rem;
         }
     }
 `;

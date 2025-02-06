@@ -1,14 +1,14 @@
 class Home extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: "closed"}).innerHTML = homeHTML;
+        this.attachShadow({mode: "open"}).innerHTML = homeHTML;
     }
 }
 
 const homeCSS = `
-    @media screen and (max-width: 701px) {
+    @media screen and (max-width: 769px) {
         #home {
-            padding: 4rem 1.5rem;
+            padding: 4rem 1.5rem 3rem;
         }
 
         #about > h3 {
@@ -34,19 +34,19 @@ const homeCSS = `
         #profile-pic {
             display: flex;
             justify-content: center;
-            margin-bottom: 3rem;
         }
 
         img {
             border: 1px black solid;
             border-radius: 50%;
-            width: 50vw;
+            width: 33vw;
         }
     }
 
-    @media screen and (min-width: 701px) {
+    @media screen and (min-width: 769px) {
         #home {
-            padding: 7.2rem 0;
+            padding-top: 7.2rem;
+            padding-bottom: 6rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto;

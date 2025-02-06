@@ -1,35 +1,28 @@
 class Footer extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({mode: "closed"}).innerHTML = `${footerHtml}`;
+        this.attachShadow({mode: "open"}).innerHTML = `${footerHtml}`;
+        this.style.position = "relative";
+    }
+
+    connectedCallback() {
+        const footerHeight = this.getBoundingClientRect().bottom - this.getBoundingClientRect().top;
+
+        const content = document.querySelector("#content");
+        const contentEnd = content.getBoundingClientRect().bottom
+
+        const distToBottom = window.innerHeight - this.getBoundingClientRect().bottom;
+
+        const pushLower = distToBottom > 2;
+        const pushHigher = distToBottom < 0 && window.innerHeight - contentEnd > 0 && window.innerHeight - contentEnd > footerHeight;
+
+        if (pushLower || pushHigher) this.style.top = distToBottom - 1;
+        else this.style.top = 0;
     }
 }
 
 const footerCss = `
-    @media screen and (min-width: 701px) {
-        #footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 1.9rem;
-            border-top: 1px black solid;
-            background-color: white;
-        }
-
-        #icons {
-            display: flex;
-        }
-
-        .icon {
-            padding: 0 0.9rem;
-        }
-
-        img {
-            height: 2rem;
-        }
-    }
-
-    @media screen and (max-width: 701px) {
+    @media screen and (max-width: 769px) {
         #footer {
             display: flex;
             height: 10rem;
@@ -52,6 +45,29 @@ const footerCss = `
 
         .icon {
             padding: 0 1rem;
+        }
+
+        img {
+            height: 2rem;
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+        #footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1.9rem;
+            border-top: 1px black solid;
+            background-color: white;
+        }
+
+        #icons {
+            display: flex;
+        }
+
+        .icon {
+            padding: 0 0.9rem;
         }
 
         img {
