@@ -25,6 +25,12 @@ function handler(req, res) {
             }
         });
     }
+    
+    if (req.url === '/favicon.ico') {
+        res.writeHead(200, {'Content-Type': 'image/x-icon'} );
+        res.end();
+        return;
+    }
 
     const includes = (ext) => req.url.includes(ext) ? req.url : null;
 
