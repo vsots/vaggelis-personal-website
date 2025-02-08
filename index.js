@@ -1,13 +1,12 @@
 import * as http from 'http';
 import * as fs from 'fs';
 
-const host = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer(handler);
 
-server.listen(port, host, () => {
-    console.log(`Website Running at http://${host}:${port}/`);
+server.listen(port, () => {
+    console.log("Website Running at port: ", port);
 });
 
 function handler(req, res) {
