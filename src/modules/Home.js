@@ -6,13 +6,13 @@ class Home extends HTMLElement {
 }
 
 const homeCSS = `
-    @media screen and (max-width: 769px) {
+    @media screen and (max-width: 1025px) {
         #home {
             padding: 4rem 1.5rem 3rem;
         }
 
         #about > h3 {
-            font-size: large;
+            font-size: x-large;
         }
         
         h3 {
@@ -34,16 +34,11 @@ const homeCSS = `
         #profile-pic {
             display: flex;
             justify-content: center;
-        }
-
-        img {
-            border: 1px black solid;
-            border-radius: 50%;
-            width: 33vw;
+            height: 30%;
         }
     }
 
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 1025px) {
         #home {
             padding-top: 7.2rem;
             padding-bottom: 6rem;
@@ -90,13 +85,11 @@ const homeCSS = `
             grid-area: pic;
             display: flex;
             justify-content: center;
+            align-items: baseline;
         }
 
         img {
-            border: 1px black solid;
-            border-radius: 50%;
             width: 33vw;
-            height: 33vw;
         }
     }
 `;
@@ -118,7 +111,7 @@ const homeHTML = `
             <p>Software Engineer → Rally Health, San Francisco, 2017-2020</p>
         </div>
         <div id="profile-pic">
-            <img src="../media/Vaggelis_Sotiropoulos_Profile_Photo.jpeg" />
+            <img src="../media/profile_photo.jpg" />
         </div>
     </div>
 `

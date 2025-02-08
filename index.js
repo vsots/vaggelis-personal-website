@@ -10,40 +10,46 @@ server.listen(port, () => {
 });
 
 function handler(req, res) {
-    const includes = (ext) => req.url.includes(ext) ? req.url : null;
+    const goodRes = (contentType, data) => {
+        res.writeHead(200, {'Content-Type' : contentType});
+        if (data) res.write(data);
+        res.end();
+    }
 
     const reader = (contentType) => {
+        if (req.url.includes('.ico')) {
+            goodRes(contentType);
+            return;
+        }
+
         const isImage = (contentType === "image/jpeg") || (contentType === "image/svg+xml")
         const filePath = (isImage ? './src' : '.') + (req.url === '/' ? '/index.html' : req.url);
 
         fs.readFile(filePath, (err, data) => {
-            if (err == null) {
-                res.writeHeader(200, {'Content-Type' : contentType});
-                res.write(data);
-                res.end();
-            } else {
-                console.error(err);  
+            if (err == null) goodRes(contentType, data);
+            else {
+                res.writeHead(400, {'Content-Type': 'text/plain'});
+                res.end('Bad Request');
             }
         });
     }
 
+    const includes = (ext) => req.url.includes(ext) ? req.url : null;
+
     switch (req.url) {
-        case includes('.js'):
-            reader('text/javascript');
-            break;
-        case includes('.mjs'):
+        case (includes('.js') || includes('.mjs')):
             reader('text/javascript');
             break;
         case includes('.css'): 
             reader('text/css');
             break;
-        case includes('.jpeg'):
+        case includes('.jpg'):
             reader('image/jpeg');
             break;
         case includes('.svg'): 
             reader('image/svg+xml');
             break;
         default: 
-            reader('text/html');
+            reader(req.url === '/' ? 'text/html' : 'image/x-icon');
     }
 }
