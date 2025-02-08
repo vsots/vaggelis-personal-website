@@ -28,7 +28,7 @@ class Contact extends HTMLElement {
             const json = JSON.stringify({name, email, "subject": (subject.length ? subject : 'No Subject'), message});
 
             try {
-                const res = await fetch('http://127.0.0.1:8080/contactsubmission', {
+                const res = await fetch('https://api.vaggelissengineer.com/contactsubmission', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
