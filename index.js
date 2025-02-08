@@ -10,6 +10,8 @@ server.listen(port, () => {
 });
 
 function handler(req, res) {
+    const includes = (ext) => req.url.includes(ext) ? req.url : null;
+
     const reader = (contentType) => {
         const isImage = (contentType === "image/jpeg") || (contentType === "image/svg+xml")
         const filePath = (isImage ? './src' : '.') + (req.url === '/' ? '/index.html' : req.url);
@@ -24,14 +26,8 @@ function handler(req, res) {
             }
         });
     }
- 
-    const includes = (ext) => req.url.includes(ext) ? req.url : null;
 
     switch (req.url) {
-        case includes('.ico'):
-            res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-            res.end();
-            break;
         case includes('.js'):
             reader('text/javascript');
             break;
