@@ -113,13 +113,14 @@ const contactCSS = `
         
         button {
             display: block;
+            color: #171D3A; 
             background-color: white;
             padding: 0.25rem 2.25rem;
             margin-top: 2.5rem;
             border: 2px #171D3A solid;
         }
 
-         button:hover, button:active {
+        button:hover, button:active {
             color: white;
             background-color: #171D3A;
             transition: color 0.2s, background-color 0.2s;
