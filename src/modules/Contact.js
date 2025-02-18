@@ -44,6 +44,7 @@ class Contact extends HTMLElement {
                 }
             } catch(error) {
                 console.log(error.message);
+                alert("Message failed to send with error: ", error.message);
             }
         })
     }
