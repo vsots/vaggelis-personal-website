@@ -1,4 +1,4 @@
-import DOMPurify from "dompurify";
+import checkAndSanitizeString from "form-text-sanitizer";
 
 class Contact extends HTMLElement {
     constructor() {
@@ -11,24 +11,18 @@ class Contact extends HTMLElement {
         const buttonText = this.shadowRoot.querySelector('button > h3')
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+
             buttonText.innerHTML = 'Submitting';
+
             const data = new FormData(form);
-            const profiles = {
-                USE_PROFILES: {
-                    mathMl: false,
-                    svg: false,
-                    svgFilters: false,
-                    html: false
-                }
-            }
-            const name = DOMPurify.sanitize(data.get("Name"), profiles);
-            const email = DOMPurify.sanitize(data.get("Email"), profiles);
-            const subject = DOMPurify.sanitize(data.get("Subject"), profiles);
-            const message = DOMPurify.sanitize(data.get("Message"), profiles);
+            const { suggestedString: name } = checkAndSanitizeString(data.get("Name"));
+            const { suggestedString: email } = checkAndSanitizeString(data.get("Email"));
+            const { suggestedString: subject } = checkAndSanitizeString(data.get("Subject"));
+            const { suggestedString: message } = checkAndSanitizeString(data.get("Message"));
             const json = JSON.stringify({name, email, "subject": (subject.length ? subject : 'No Subject'), message});
 
             try {
-                const res = await fetch('https://api.vaggelissengineer.com/contactsubmission', {
+                const res = await fetch('http://localhost:8080/contactsubmission', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
