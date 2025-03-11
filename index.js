@@ -3,6 +3,22 @@ import * as fs from 'fs';
 
 const port = 3000;
 
+const whiteList = new Map([
+    ["/", "text/html"],
+    ["/src/css/index.css", "text/css"],
+    ["/src/modules/Header.js", "text/javascript"],
+    ["/src/modules/Home.js", "text/javascript"],
+    ["/src/modules/SkillsAndProjects.js", "text/javascript"],
+    ["/src/modules/Contact.js", "text/javascript"],
+    ["/src/modules/Footer.js", "text/javascript"],
+    ["/src/modules/footerAdjustOnChange.js", "text/javascript"],
+    ["/src/modules/MobileOpenMenu.js", "text/javascript"],
+    ["/src/modules/helpers.js", "text/javascript"],
+    ["/src/media/icons.js", "text/javascript"],
+    ["/node_modules/form-text-sanitizer/dist/index.js", "text/javascript"],
+    ["/media/profile_photo.jpg", "image/jpeg"]
+]);
+
 const server = http.createServer(handler);
 
 server.listen(port, () => {
@@ -16,14 +32,14 @@ function handler(req, res) {
         res.end();
     }
 
-    const reader = (contentType) => {
-        if (contentType === 'image/x-icon') {
-            goodRes(contentType);
+    const reader = (url) => {
+        if (!whiteList.has(url)) {
+            goodRes("image/x-icon");
             return;
         }
 
-        const isImage = (contentType === "image/jpeg") || (contentType === "image/svg+xml")
-        const filePath = (isImage ? './src' : '.') + (req.url === '/' ? '/index.html' : req.url);
+        const contentType = whiteList.get(url);
+        const filePath = req.url === '/' ? './index.html' : ((contentType === 'image/jpeg' ?  './src' : '.') + req.url);
 
         fs.readFile(filePath, (err, data) => {
             if (err == null) goodRes(contentType, data);
@@ -34,19 +50,5 @@ function handler(req, res) {
         });
     }
 
-    const includes = (ext) => req.url.includes(ext) ? req.url : null;
-
-    switch (req.url) {
-        case (includes('.js') || includes('.mjs')):
-            reader('text/javascript');
-            break;
-        case includes('.css'): 
-            reader('text/css');
-            break;
-        case includes('.jpg'):
-            reader('image/jpeg');
-            break;
-        default: 
-            reader(req.url === '/' ? 'text/html' : 'image/x-icon');
-    }
+    reader(req.url);
 }
