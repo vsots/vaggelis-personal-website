@@ -1,4 +1,5 @@
 import checkAndSanitizeString from "form-text-sanitizer";
+import { email, github, linkedin, phone } from '../media/icons.js';
 
 class Contact extends HTMLElement {
     constructor() {
@@ -73,7 +74,7 @@ const contactCSS = `
             padding-right: 1.2rem;
         }
 
-        img {
+        svg {
             height: 1.5rem;
         }
 
@@ -161,7 +162,7 @@ const contactCSS = `
             padding-right: 1rem;
         }
 
-        img {
+        svg {
             height: 1.5rem;
         }
 
@@ -226,22 +227,22 @@ const contactHTML = `
                 <div id="icons">
                     <div class="icon">
                         <a href="tel:+17089971769">
-                            <img src="./media/phone.svg" alt="Phone"/>
+                            ${phone}
                         </a>
                     </div>
                     <div class="icon">
                         <a href="mailto:vsotsdev@gmail.com">
-                            <img src="./media/email.svg" alt="Email"/>
+                            ${email}
                         </a>
                     </div>
                     <div class="icon">
                         <a href="https://github.com/vsots" target="_blank" rel="noreferrer">
-                            <img src="./media/github.svg" alt="GitHub"/>
+                            ${github}
                         </a>
                     </div>
                     <div class="icon">
                         <a href="https://www.linkedin.com/in/vaggelis-sotiropoulos" target="_blank" rel="noreferrer">
-                            <img src="./media/linkedin.svg" alt="LinkedIn"/>
+                            ${linkedin}
                         </a>
                     </div>
                 </div>

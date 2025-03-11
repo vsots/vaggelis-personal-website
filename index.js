@@ -17,7 +17,7 @@ function handler(req, res) {
     }
 
     const reader = (contentType) => {
-        if (req.url.includes('.ico')) {
+        if (contentType === 'image/x-icon') {
             goodRes(contentType);
             return;
         }
@@ -45,9 +45,6 @@ function handler(req, res) {
             break;
         case includes('.jpg'):
             reader('image/jpeg');
-            break;
-        case includes('.svg'): 
-            reader('image/svg+xml');
             break;
         default: 
             reader(req.url === '/' ? 'text/html' : 'image/x-icon');
