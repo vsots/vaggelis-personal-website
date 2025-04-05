@@ -8,27 +8,25 @@ class Home extends HTMLElement {
 const homeCSS = `
     @media screen and (max-width: 1025px) {
         #home {
-            padding: 4rem 1.5rem 3rem;
+            margin: 1.4rem 1.5rem 3rem;
         }
 
-        #about > h3 {
-            font-size: x-large;
+        #about {
+            margin-bottom: 3rem;
         }
         
-        h3 {
+        h3, p {
             margin-top: 0;
-            margin-bottom: 3rem;
         }
 
         #work-exp {
             font-size: large;
             font-family: Esteban;
-            margin-bottom: 5rem;
+            margin-bottom: 2rem;
         }
         
         #work-exp > p {
-            margin-top: 0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         #profile-pic {
@@ -40,8 +38,9 @@ const homeCSS = `
 
     @media screen and (min-width: 1025px) {
         #home {
-            padding-top: 7.2rem;
-            padding-bottom: 6rem;
+            margin-top: 7.2rem;
+            margin-bottom: 6rem;
+            margin-left: 1.9rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto;
@@ -54,33 +53,31 @@ const homeCSS = `
             grid-area: about;
             width: 50vw;
         }
+        
+        h3, p {
+            margin-top: 0;
+        }
 
         #about > h3 {
             font-size: 2rem;
-            font-weight: 600;
-            margin-top: 0;
-            margin-left: 1.9rem;
             margin-bottom: 3rem;
         }
 
         #work-exp {
             grid-area: exp;
-            margin-left: 1.9rem;
             font-size: 1.1rem;
             font-family: Esteban;
             font-weight: 300;
         }
-        
+
         #work-exp > h3 {
-            margin-top: 0;
             margin-bottom: 1.9rem;
         }
-        
+
         #work-exp > p {
-            margin-top: 0;
             margin-bottom: 0.75rem;
         }
-        
+
         #profile-pic {
             grid-area: pic;
             display: flex;
@@ -106,7 +103,7 @@ const homeHTML = `
         </div>
         <div id="work-exp">
             <h3>WORK EXPERIENCE</h3>
-            <p>Software Engineer → Open Source Software, San Francisco Bay Area, 2023-Present</p>
+            <p>Software Engineer → Public Source Software, San Francisco Bay Area, 2023-Present</p>
             <p>Software Engineer → Capital One, San Francisco, 2021-2023</p>
             <p>Software Engineer → Rally Health, San Francisco, 2017-2020</p>
         </div>

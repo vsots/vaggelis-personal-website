@@ -14,17 +14,18 @@ export const navLink = (el, context) => {
         }
 
         if (context && window.innerWidth <= 768) {
-            let mobileMenu;
-
-            if (context.localName === "mobile-open-menu") mobileMenu = context;
-            else mobileMenu = context.shadowRoot.querySelector("mobile-open-menu");
+            const mobileMenu = document.querySelector("header-and-menu").shadowRoot.querySelector("mobile-open-menu");
 
             if (mobileMenu.computedStyleMap().get("display").value !== "none") {
                 mobileMenu.style.animation = "fadeOut 0.2s ease-out 0s 1 normal forwards";
                 toggleMobileMenuGlyph(context, false);
+                document.querySelector("header-and-menu").isMenuOpen = false;
+                document.querySelector("body").style.overflow = "scroll";
             }
+            
+            window.scrollTo(0, 0);
         } else {
-            const tabs = context.shadowRoot.querySelectorAll("#menu > h3");
+            const tabs = context.shadowRoot.querySelectorAll("#menu > h4");
             tabs.forEach(tab => tab.style.borderBottom = "3px transparent solid");
             if (el.id === "name") tabs[0].style.borderBottom = "3px #171D3A solid";
             else el.style.borderBottom = "3px #171D3A solid";
@@ -32,10 +33,10 @@ export const navLink = (el, context) => {
     });
 }
 
-export const toggleMobileMenuGlyph = (context, isOpen) => {
+export const toggleMobileMenuGlyph = (mobileMenu, isOpen) => {
     let glyphs;
-    if (context.localName === "mobile-open-menu") glyphs = context.parentNode.querySelectorAll("hr");
-    else glyphs = context.shadowRoot.querySelectorAll("hr");
+    if (mobileMenu.localName === "mobile-open-menu") glyphs = mobileMenu.parentNode.querySelectorAll("hr");
+    else glyphs = mobileMenu.shadowRoot.querySelectorAll("hr");
 
     if (!isOpen) {
         glyphs[0].style.animation = "rotateBack45 0.2s ease-in 0s 1 normal forwards";

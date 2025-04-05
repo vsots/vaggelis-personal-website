@@ -6,34 +6,34 @@ class Header extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: "open"}).innerHTML = headerHtml;
+        this.isMenuOpen = false;
     }
 
     connectedCallback() {
         const menu = this.shadowRoot.querySelector("#menu");
-        const links = this.shadowRoot.querySelectorAll("h3");
-        const screenWidth = window.innerWidth;
+        const links = this.shadowRoot.querySelectorAll("h3, h4");
+        const viewWidth = window.innerWidth;
         
-        if (screenWidth <= 768) { 
+        if (viewWidth <= 768) { 
             navLink(this.shadowRoot.querySelector("#name"), this);
             menu.addEventListener("click", (_) => {
                 const mobileMenuElem = this.shadowRoot.querySelector("mobile-open-menu");
-                const isMobileMenuElemOpen = mobileMenuElem.computedStyleMap().get("display").value;
 
-                let isOpen;
-                if (isMobileMenuElemOpen === "none") {
+                if (!this.isMenuOpen) {
+                    document.querySelector("body").style.overflow = "hidden";
                     mobileMenuElem.style.display = "block";
                     mobileMenuElem.style.animation = "fadeIn 0.3s ease-out 0s 1 normal forwards running";
-                    isOpen = true;
+                    this.isMenuOpen = true;
                 } else {
                     mobileMenuElem.style.animation = "fadeOut 0.2s ease-out 0s 1 normal forwards";
-                    isOpen = false;
+                    this.isMenuOpen = false;
                 }
 
-                toggleMobileMenuGlyph(this, isOpen);
+                toggleMobileMenuGlyph(this, this.isMenuOpen);
+                if (!this.isMenuOpen) document.querySelector("body").style.overflow = "scroll";
             });
         } else links.forEach(node => navLink(node, this));
     }
-
 }
 
 const headerCss = `
@@ -179,17 +179,15 @@ const headerCss = `
     @media screen and (max-width: 769px) {
         #header {
             position: sticky;
-            top: 0;
-            left: 0;
+            top: 0px;
             background-color: white;
-            padding: 2rem 1.5rem;
+            padding: 1.8rem 1.5rem 1.6rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         #name {
-            font-size: large;
             margin: 0;
         }
 
@@ -205,7 +203,7 @@ const headerCss = `
             margin-bottom: 0.3rem;
         }
 
-        #menu > h3 {
+        #menu > h4 {
             display: none;
         }
     }
@@ -219,12 +217,15 @@ const headerCss = `
             align-items: center;
         }
 
+        h3, h4 {
+            cursor: pointer;
+        }
+
         #name {
-            font-size: 2.1rem;
+            font-size: 2rem;
             margin: 0;
             border-top: 3px transparent solid;
             border-bottom: 3px transparent solid;
-            cursor: pointer;
         }
 
         #menu {
@@ -236,11 +237,10 @@ const headerCss = `
             display: none;
         }
 
-        #menu > h3 {
+        #menu > h4 {
             margin: 0 0.7rem;
             font-size: 1.1rem;
             padding: 2.3rem 0;
-            cursor: pointer;
         }
         
         #skills, #contact {
@@ -257,19 +257,17 @@ const headerCss = `
 
 const headerHtml = `
     <style>${headerCss}</style>
-    <div>
-        <div id="header">
-            <h3 id="name">Vaggelis Sotiropoulos</h3>
-            <div id="menu">
-                <hr>
-                <hr>
-                <h3 id="home">Home</h3>
-                <h3 id="skills">Skills & Projects</h3>
-                <h3 id="contact">Contact</h3>
-            </div>
+    <div id="header">
+        <h3 id="name">Vaggelis Sotiropoulos</h3>
+        <div id="menu">
+            <hr>
+            <hr>
+            <h4 id="home">Home</h4>
+            <h4 id="skills">Skills & Projects</h4>
+            <h4 id="contact">Contact</h4>
         </div>
-        <mobile-open-menu></mobile-open-menu>
     </div>
+    <mobile-open-menu></mobile-open-menu>
 `;
 
 customElements.define("header-and-menu", Header);
