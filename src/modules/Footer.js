@@ -59,7 +59,7 @@ const footerCss = `
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 1.9rem;
+            padding: 1.5rem 4rem;
             border-top: 1px black solid;
             background-color: white;
         }

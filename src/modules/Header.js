@@ -212,7 +212,7 @@ const headerCss = `
         #header {
             display: flex;
             background-color: white;
-            padding: 0 1.9rem;
+            padding: 2rem 4rem 0;
             justify-content: space-between;
             align-items: center;
         }
@@ -222,7 +222,7 @@ const headerCss = `
         }
 
         #name {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin: 0;
             border-top: 3px transparent solid;
             border-bottom: 3px transparent solid;
@@ -232,17 +232,17 @@ const headerCss = `
             display: flex;
             align-items: center;
         }
-        
+
         hr {
             display: none;
         }
 
         #menu > h4 {
             margin: 0 0.7rem;
-            font-size: 1.1rem;
-            padding: 2.3rem 0;
+            font-size: 1.5rem;
+            padding-bottom: 1.5rem;
         }
-        
+
         #skills, #contact {
             border-top: 3px transparent solid;
             border-bottom: 3px transparent solid;
