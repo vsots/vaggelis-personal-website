@@ -1,3 +1,4 @@
+import { footerAdjustOnChange } from './footerAdjustOnChange.js';
 import { email, github, linkedin, phone } from '../media/icons.js';
 
 class Footer extends HTMLElement {
@@ -8,18 +9,7 @@ class Footer extends HTMLElement {
     }
 
     connectedCallback() {
-        const footerHeight = this.getBoundingClientRect().bottom - this.getBoundingClientRect().top;
-
-        const content = document.querySelector("#content");
-        const contentEnd = content.getBoundingClientRect().bottom
-
-        const distToBottom = window.innerHeight - this.getBoundingClientRect().bottom;
-
-        const pushLower = distToBottom > 2;
-        const pushHigher = distToBottom < 0 && window.innerHeight - contentEnd > 0 && window.innerHeight - contentEnd > footerHeight;
-
-        if (pushLower || pushHigher) this.style.top = distToBottom - 1;
-        else this.style.top = 0;
+        footerAdjustOnChange();
     }
 }
 

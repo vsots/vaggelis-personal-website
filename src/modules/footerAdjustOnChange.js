@@ -1,11 +1,21 @@
-const observer = new MutationObserver(function(_) {
+const observer = new MutationObserver(function(mutations) { 
+    const secondTarget = document.querySelector("contact-page");
+
+    if (secondTarget && mutations[0].target.firstChild === secondTarget) {
+        this.observe(secondTarget.shadowRoot, config);
+    }
+
+    footerAdjustOnChange();
+});
+
+function footerAdjustOnChange() {
     const footer = document.querySelector("footer-menu");
     const footerHeight = footer.getBoundingClientRect().bottom - footer.getBoundingClientRect().top;
 
     const content = document.querySelector("#content");
     const contentEnd = content.getBoundingClientRect().bottom
 
-    const currentFooterTop = parseFloat(footer.style.top);
+    const currentFooterTop = footer.style.top ? parseFloat(footer.style.top) : 0;
 
     const distToBottom = window.innerHeight - footer.getBoundingClientRect().bottom;
 
@@ -20,12 +30,15 @@ const observer = new MutationObserver(function(_) {
             footer.style.top = currentFooterTop - (footerContentDist - 2);
         }
     }
-});
+}
 
 const target = document.querySelector("#content");
 
 const config = {
-    childList: true
+    childList: true,
+    subtree: true
 }
 
 observer.observe(target, config);
+
+export { footerAdjustOnChange }
